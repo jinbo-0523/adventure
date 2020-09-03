@@ -2,14 +2,13 @@ require 'pry'
 # binding.pry
 
 class Character
-  attr_accessor :name, :max_hp, :hp, :offense, :defence, :money
-  def initialize(name:, max_hp:, offense:, defence:, money:)
+  attr_accessor :name, :max_hp, :hp, :offense, :defence
+  def initialize(name:, max_hp:, offense:, defence:)
     @name = name
     @max_hp = max_hp 
     @hp = max_hp
     @offense = offense
     @defence = defence
-    @money = money
 
   end
 end
@@ -57,18 +56,17 @@ end
 def Appearance_monster(place)
   case place
   when  1
-    monsterA = Monster.new(name:"monsterA", max_hp: 10, offense: 5,defence: 3, money: 10) 
+    monsterA = Monster.new(name:"monsterA", max_hp: 10, offense: 5,defence: 3) 
   when  2
-    monsterB = Monster.new(name:"monsterB", max_hp: 20, offense: 10,defence: 5, money: 20) 
+    monsterB = Monster.new(name:"monsterB", max_hp: 20, offense: 10,defence: 5) 
   when  3
-    monsterB = Monster.new(name:"monsterC", max_hp: 30, offense: 15,defence: 8, money: 40)
+    monsterB = Monster.new(name:"monsterC", max_hp: 30, offense: 15,defence: 8)
   when  4
-    middle_monsnter = Monster.new(name:"middle_mosnter", max_hp: 40, offense: 20,defence: 10, money: 50)
+    middle_monsnter = Monster.new(name:"middle_mosnter", max_hp: 40, offense: 20,defence: 10)
   when  5
-    boss = Monster.new(name:"boss", max_hp: 80, offense: 40,defence: 20, money: 100)  
+    boss = Monster.new(name:"boss", max_hp: 80, offense: 40,defence: 20)
   end
 end
-
 
 def battle(brave,monster)
   loop do
@@ -95,11 +93,10 @@ def status_up(brave,monster)
   brave.max_hp += (monster.max_hp * 0.2).ceil
   brave.offense+= (monster.offense * 0.2).ceil
   brave.defence += (monster.defence * 0.2).ceil
-  brave.money += (monster.money * 0.2).ceil  
   brave
 end
 
-brave = Brave.new(name:"勇者", max_hp: 15, offense: 5, defence: 3, money:50)
+brave = Brave.new(name:"勇者", max_hp: 15, offense: 5, defence: 3)
 
 loop do
   place = input_place
