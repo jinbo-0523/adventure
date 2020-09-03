@@ -34,4 +34,4 @@
 # モンスターのステータスを足す（1.1掛ける位）
 # ※街の選択
 attr_accessor  :max_hp, :hp, :offense, :defence
-attr_reader ":name"
+attr_reader :name
